@@ -1,23 +1,42 @@
 def menuOpc(colorLib, system,selected = 1):
     if(selected == 1):
-        print(colorLib.Cursor.POS(50, 12)+colorLib.Fore.RED+colorLib.Back.WHITE+"      [1] Registro      ")
+        print(colorLib.Cursor.POS(50, 12)+colorLib.Fore.GREEN+colorLib.Back.WHITE+"      [1] Registro      ")
     else:
         print(colorLib.Cursor.POS(50, 12)+colorLib.Fore.YELLOW+"      [1] Registro      ")
     if(selected == 2):
-        print(colorLib.Cursor.POS(50, 14)+colorLib.Fore.RED+colorLib.Back.WHITE+"      [2] Bajas         ")
+        print(colorLib.Cursor.POS(50, 14)+colorLib.Fore.GREEN+colorLib.Back.WHITE+"      [2] Bajas         ")
     else:
         print(colorLib.Cursor.POS(50, 14)+colorLib.Fore.YELLOW+"      [2] Bajas          ")
     if(selected == 3):
-        print(colorLib.Cursor.POS(50, 16)+colorLib.Fore.RED+colorLib.Back.WHITE+"      [3] Ventas        ")
+        print(colorLib.Cursor.POS(50, 16)+colorLib.Fore.GREEN+colorLib.Back.WHITE+"      [3] Ventas        ")
     else:
         print(colorLib.Cursor.POS(50, 16)+colorLib.Fore.YELLOW+"      [3] Ventas        ")
     if(selected == 4):
-        print(colorLib.Cursor.POS(50, 18)+colorLib.Fore.RED+colorLib.Back.WHITE+"      [4] Salir         ")
+        print(colorLib.Cursor.POS(50, 18)+colorLib.Fore.GREEN+colorLib.Back.WHITE+"      [4] Salir         ")
     else:
         print(colorLib.Cursor.POS(50, 18)+colorLib.Fore.YELLOW+"      [4] Salir         ")
     print(colorLib.Cursor.POS(28,28))
+    
+def registrationOpc(colorLib, system,selected = 1):
+    if(selected == 1):
+        print(colorLib.Cursor.POS(50, 14)+colorLib.Fore.CYAN+colorLib.Back.WHITE+"      [1] Fruteria      ")
+    else:
+        print(colorLib.Cursor.POS(50, 14)+colorLib.Fore.RED+"      [1] Fruteria      ")
+    if(selected == 2):
+        print(colorLib.Cursor.POS(50, 16)+colorLib.Fore.CYAN+colorLib.Back.WHITE+"      [2] Empleado         ")
+    else:
+        print(colorLib.Cursor.POS(50, 16)+colorLib.Fore.RED+"      [2] Empleado          ")
+    if(selected == 3):
+        print(colorLib.Cursor.POS(50, 18)+colorLib.Fore.CYAN+colorLib.Back.WHITE+"      [3] Producto        ")
+    else:
+        print(colorLib.Cursor.POS(50, 18)+colorLib.Fore.RED+"      [3] Producto        ")
+    if(selected == 4):
+        print(colorLib.Cursor.POS(50, 20)+colorLib.Fore.CYAN+colorLib.Back.WHITE+"      [4] Menu       ")
+    else:
+        print(colorLib.Cursor.POS(50, 20)+colorLib.Fore.RED+"      [4] Menu        ")
+    print(colorLib.Cursor.POS(28,28))
 
-def menuInfo(colorLib, system):
+def menuInfo(colorLib):
     print(colorLib.Cursor.POS(50,3)+colorLib.Fore.YELLOW+"___  ___                 ")
     print(colorLib.Cursor.POS(50,4)+colorLib.Fore.YELLOW+"|  \/  |                 ")
     print(colorLib.Cursor.POS(50,5)+colorLib.Fore.YELLOW+"| .  . | ___ _ __  _   _ ")
@@ -37,6 +56,34 @@ def menuInfo(colorLib, system):
     print(colorLib.Cursor.POS(10,16)+colorLib.Fore.GREEN+"XXXXXXXXXXXXXXXXXXXXXXXXXX")
     print(colorLib.Cursor.POS(10,17)+colorLib.Fore.GREEN+"XXXXXXXXXXXXXXXXXXXXXXXXXX")
     print(colorLib.Cursor.POS(8,18)+colorLib.Fore.GREEN+"x---------------------------x")
+
+def registrationSign(colorLib):
+    print(colorLib.Cursor.POS(8,4)+colorLib.Fore.CYAN+"______           _     _             ")
+    print(colorLib.Cursor.POS(8,5)+colorLib.Fore.CYAN+"| ___ \         (_)   | |            ")
+    print(colorLib.Cursor.POS(8,6)+colorLib.Fore.CYAN+"| |_/ /___  __ _ _ ___| |_ _ __ ___  ")
+    print(colorLib.Cursor.POS(8,7)+colorLib.Fore.CYAN+"|    // _ \/ _` | / __| __| '__/ _ \ ")
+    print(colorLib.Cursor.POS(8,8)+colorLib.Fore.CYAN+"| |\ \  __/ (_| | \__ \ |_| | | (_) |")
+    print(colorLib.Cursor.POS(8,9)+colorLib.Fore.CYAN+"\_| \_\___|\__, |_|___/\__|_|  \___/ ")
+    print(colorLib.Cursor.POS(8,10)+colorLib.Fore.CYAN+"            __/ |                    ")
+    print(colorLib.Cursor.POS(8,11)+colorLib.Fore.CYAN+"           |___/                     ")
+
+def salesSign(colorLib):
+    print(colorLib.Cursor.POS(47,4)+colorLib.Fore.GREEN+" _   _            _             ")
+    print(colorLib.Cursor.POS(47,5)+colorLib.Fore.GREEN+"| | | |          | |            ")
+    print(colorLib.Cursor.POS(47,6)+colorLib.Fore.GREEN+"| | | | ___ _ __ | |_ __ _ ___  ")
+    print(colorLib.Cursor.POS(47,7)+colorLib.Fore.GREEN+"| | | |/ _ \ '_ \| __/ _` / __| ")
+    print(colorLib.Cursor.POS(47,8)+colorLib.Fore.GREEN+"\ \_/ /  __/ | | | || (_| \__ \ ")
+    print(colorLib.Cursor.POS(47,9)+colorLib.Fore.GREEN+" \___/ \___|_| |_|\__\__,_|___/ ")
+                               
+def deleteSign(colorLib):
+    print(colorLib.Cursor.POS(47,4)+colorLib.Fore.RED+"______       _            ")
+    print(colorLib.Cursor.POS(47,5)+colorLib.Fore.RED+"| ___ \     (_)           ")
+    print(colorLib.Cursor.POS(47,6)+colorLib.Fore.RED+"| |_/ / __ _ _  __ _ ___  ")
+    print(colorLib.Cursor.POS(47,7)+colorLib.Fore.RED+"| ___ \/ _` | |/ _` / __| ")
+    print(colorLib.Cursor.POS(47,8)+colorLib.Fore.RED+"| |_/ / (_| | | (_| \__ \ ")
+    print(colorLib.Cursor.POS(47,9)+colorLib.Fore.RED+"\____/ \__,_| |\__,_|___/ ")
+    print(colorLib.Cursor.POS(47,10)+colorLib.Fore.RED+"           _/ |           ")
+    print(colorLib.Cursor.POS(47,11)+colorLib.Fore.RED+"          |__/            ")
 
 def frame(colorLib, system, color):
     system.system('cls')
@@ -126,7 +173,7 @@ def menu():
     #Se imprime la intefaz del menu
     frame(colorLib,system,frameColor)
     menuFrame(colorLib, system, menuFrameColor)
-    menuInfo(colorLib, system)
+    menuInfo(colorLib)
     menuOpc(colorLib, system)
     
     step = 1
@@ -152,7 +199,27 @@ def menu():
             frame(colorLib,system,frameColor)
             innerFrameColor = colorLib.Fore.RED
             innerFrame(colorLib, system, innerFrameColor)
+            registrationSign(colorLib)
             
+            print(colorLib.Cursor.POS(52,12)+colorLib.Fore.CYAN+"¿Que desea registrar?")
+            registrationOpc(colorLib, system)
+            
+            step = 1
+            while(True):
+                opc = ord(getch())
+                
+                if(opc == 80):
+                    if(step == 4):
+                        step = 1
+                    else:
+                        step += 1
+                    registrationOpc(colorLib, system, step)
+                elif(opc == 72):
+                    if(step == 1):
+                        step = 4
+                    else:
+                        step -= 1
+                    registrationOpc(colorLib, system, step)
             # subprocess.run('', shell = True)
             # print(colorLib.Cursor.POS(46, 12)+colorLib.Fore.GREEN+'-> \0337')
             # name = str(input('\0338'))
@@ -164,6 +231,7 @@ def menu():
             frame(colorLib,system,frameColor)
             innerFrameColor = colorLib.Fore.CYAN
             innerFrame(colorLib, system, innerFrameColor)
+            deleteSign(colorLib)
             
             # step = 0
             # selectFile(txtFiles,step)
@@ -194,6 +262,7 @@ def menu():
             frame(colorLib,system,frameColor)
             innerFrameColor = colorLib.Fore.YELLOW
             innerFrame(colorLib, system, innerFrameColor)
+            salesSign(colorLib)
             
         #SALIR
         if((opc == 13) & (step == 4)) | (opc == 52):
