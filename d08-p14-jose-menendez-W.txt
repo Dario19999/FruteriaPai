@@ -1,0 +1,14 @@
+{'id:': 't1', 'nombre:': 'pai', 'telefono:': 2, 'correo:': 'pai@.com'}
+{'id:': 't2', 'nombre:': 'ola', 'telefono:': 2, 'correo:': 'ola@.com'}
+{'id:': 't3', 'nombre:': 'ola2', 'telefono:': 3, 'correo:': 'ola@.com'}
+{'id:': 't4', 'nombre:': 'pai', 'telefono:': 2222, 'correo:': '@.com'}
+{'id:': 't5', 'nombre:': 'a', 'telefono:': 2, 'correo:': '@.com'}
+{'id:': 't6', 'nombre:': 'a', 'telefono:': 2, 'correo:': '@.com'}
+{'id:': 't7', 'nombre:': 'a', 'telefono:': 2, 'correo:': '@.com'}
+{'id:': 't8', 'nombre:': 'a', 'telefono:': 2, 'correo:': '@.com'}
+{'id:': 't9', 'nombre:': 'pai ', 'telefono:': 2, 'correo:': '@.com'}
+{'id:': 't10', 'nombre:': 'a', 'telefono:': 1, 'correo:': '@.com'}
+{'id:': 'e1', 'nombre:': 'juan', 'salario:': 2333}
+{'id:': 'e2', 'nombre:': 'roberto', 'salario:': 222222}
+{'id:': 'p1', 'nombre:': 'gomina', 'precio:': 400000, 'cantidad:': 10}
+{'id:': 'p2', 'nombre:': 'yema de maguey', 'precio:': 10000000000, 'cantidad:': 1}

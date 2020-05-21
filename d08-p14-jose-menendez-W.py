@@ -19,11 +19,11 @@ def menuOpc(colorLib, system,selected = 1):
     
 def registrationOpc(colorLib, system,selected = 1):
     if(selected == 1):
-        print(colorLib.Cursor.POS(50, 14)+colorLib.Fore.CYAN+colorLib.Back.WHITE+"      [1] Fruteria      ")
+        print(colorLib.Cursor.POS(50, 14)+colorLib.Fore.CYAN+colorLib.Back.WHITE+"      [1] Fruteria        ")
     else:
-        print(colorLib.Cursor.POS(50, 14)+colorLib.Fore.RED+"      [1] Fruteria      ")
+        print(colorLib.Cursor.POS(50, 14)+colorLib.Fore.RED+"      [1] Fruteria        ")
     if(selected == 2):
-        print(colorLib.Cursor.POS(50, 16)+colorLib.Fore.CYAN+colorLib.Back.WHITE+"      [2] Empleado         ")
+        print(colorLib.Cursor.POS(50, 16)+colorLib.Fore.CYAN+colorLib.Back.WHITE+"      [2] Empleado        ")
     else:
         print(colorLib.Cursor.POS(50, 16)+colorLib.Fore.RED+"      [2] Empleado          ")
     if(selected == 3):
@@ -31,9 +31,9 @@ def registrationOpc(colorLib, system,selected = 1):
     else:
         print(colorLib.Cursor.POS(50, 18)+colorLib.Fore.RED+"      [3] Producto        ")
     if(selected == 4):
-        print(colorLib.Cursor.POS(50, 20)+colorLib.Fore.CYAN+colorLib.Back.WHITE+"      [4] Menu       ")
+        print(colorLib.Cursor.POS(50, 20)+colorLib.Fore.CYAN+colorLib.Back.WHITE+"      [ESC] Ir al menu    ")
     else:
-        print(colorLib.Cursor.POS(50, 20)+colorLib.Fore.RED+"      [4] Menu        ")
+        print(colorLib.Cursor.POS(50, 20)+colorLib.Fore.RED+"      [ESC] Ir al Menu       ")
     print(colorLib.Cursor.POS(28,28))
 
 def menuInfo(colorLib):
@@ -53,9 +53,11 @@ def menuInfo(colorLib):
     print(colorLib.Cursor.POS(16,13)+colorLib.Fore.GREEN+"practica 14")
     print(colorLib.Cursor.POS(10,14)+colorLib.Fore.GREEN+"menendez gomez jose dario")
     print(colorLib.Cursor.POS(9,15)+colorLib.Fore.GREEN+"chavez romo jonathan eduardo")
-    print(colorLib.Cursor.POS(10,16)+colorLib.Fore.GREEN+"XXXXXXXXXXXXXXXXXXXXXXXXXX")
-    print(colorLib.Cursor.POS(10,17)+colorLib.Fore.GREEN+"XXXXXXXXXXXXXXXXXXXXXXXXXX")
-    print(colorLib.Cursor.POS(8,18)+colorLib.Fore.GREEN+"x---------------------------x")
+    print(colorLib.Cursor.POS(7,16)+colorLib.Fore.GREEN+"espinoza torres daniel alejandro")
+    print(colorLib.Cursor.POS(10,17)+colorLib.Fore.GREEN+"herrera vazquez oscar ivan")
+    print(colorLib.Cursor.POS(16,18)+colorLib.Fore.GREEN+"Seccion: D08")
+    print(colorLib.Cursor.POS(7,19)+colorLib.Fore.GREEN+"Lunes y Miercoles 13:00 - 14:55")
+    print(colorLib.Cursor.POS(8,20)+colorLib.Fore.GREEN+"x---------------------------x")
 
 def registrationSign(colorLib):
     print(colorLib.Cursor.POS(8,4)+colorLib.Fore.CYAN+"______           _     _             ")
@@ -158,6 +160,261 @@ def menuFrame(colorLib, system, menuFrameColor):
     for rightL in range(10):
         print(colorLib.Cursor.POS(79,11+rightL)+menuFrameColor+"║")
         
+def printRegMenu(colorLib,system):
+    frameColor = colorLib.Fore.RED
+    frame(colorLib,system,frameColor)
+    innerFrameColor = colorLib.Fore.RED
+    innerFrame(colorLib, system, innerFrameColor)
+    registrationSign(colorLib)
+    
+def printDelMenu(colorLib,system):
+    frameColor = colorLib.Fore.CYAN
+    frame(colorLib,system,frameColor)
+    innerFrameColor = colorLib.Fore.CYAN
+    innerFrame(colorLib, system, innerFrameColor)
+    deleteSign(colorLib)
+    
+def printSalesMenu(colorLib,system):
+    frameColor = colorLib.Fore.YELLOW
+    frame(colorLib,system,frameColor)
+    innerFrameColor = colorLib.Fore.YELLOW
+    innerFrame(colorLib, system, innerFrameColor)
+    salesSign(colorLib)
+
+def getStores():
+    import ast
+    
+    f = open("d08-p14-jose-menendez-W.txt", mode = "r")
+    reg = f.readlines()
+    f.close()
+    
+    count = 1
+    stores = []
+    
+    for store in range(len(reg)):
+        for line in reg:
+            storeId = "t{}".format(str(count))
+            if(line.find(storeId) != -1):
+                store = ast.literal_eval(line)
+                stores.append(store)
+        count+=1
+        
+    return stores
+
+def getEmployees():
+    import ast
+    
+    f = open("d08-p14-jose-menendez-W.txt", mode = "r")
+    reg = f.readlines()
+    f.close()
+    
+    count = 1
+    employees = []
+    
+    for employee in range(len(reg)):
+        for line in reg:
+            employeeId = "e{}".format(str(count))
+            if(line.find(employeeId) != -1):
+                employee = ast.literal_eval(line)
+                employees.append(employee)
+        count += 1
+        
+    return employees
+
+def getProducts():
+    import ast
+    
+    f = open("d08-p14-jose-menendez-W.txt", mode = "r")
+    reg = f.readlines()
+    f.close()
+    
+    count = 1
+    products = []
+    
+    for product in range(len(reg)):
+        for line in reg:
+            productId = "p{}".format(str(count))
+            if(line.find(productId) != -1):
+                product = ast.literal_eval(line)
+                products.append(product)
+        count+=1
+        
+    return products
+
+def storeRegistration(name, phone, mail, colorLib, system):
+
+    stores = getStores()
+    
+    if(len(stores) == 0):
+        storeId = "t{}".format(1)
+    else:
+        storeId = "t{}".format(len(stores)+1)
+            
+    fields = ["id:", "nombre:", "telefono:", "correo:"]
+    store = dict(zip(fields, [storeId, name, phone, mail]))
+
+    f = open("d08-p14-jose-menendez-W.txt", mode = "a")
+    
+    f.write(str(store)+"\n")
+    f.close()
+    
+    system.system('cls')
+    printRegMenu(colorLib,system)
+    print(colorLib.Cursor.POS(52,12)+colorLib.Fore.CYAN+"Fruteria '"+ name +"' registrada con exito")
+    print(colorLib.Cursor.POS(52,14)+colorLib.Fore.RED+"Presione ESC para regresar al menu")
+    print(colorLib.Cursor.POS(52,15)+colorLib.Fore.RED+"Presione 1 para registrar otra fruteria")
+
+def employeeRegistration(name, salary, colorLib, system):
+    
+    employees = getEmployees()
+    
+    if(len(employees) == 0):
+        employeeId = "e{}".format(1)
+    else:
+        employeeId = "e{}".format(len(employees)+1)
+
+    fields = ["id:", "nombre:", "salario:"]
+    employee = dict(zip(fields, [employeeId, name, salary]))
+    
+    f = open("d08-p14-jose-menendez-W.txt", mode = "a")
+    
+    f.write(str(employee)+"\n")
+    f.close()
+
+    system.system('cls')
+    printRegMenu(colorLib,system)
+    print(colorLib.Cursor.POS(52,12)+colorLib.Fore.CYAN+"El empleado '"+ name +"' registrado con exito")
+    print(colorLib.Cursor.POS(52,14)+colorLib.Fore.RED+"Presione ESC para regresar al menu")
+    print(colorLib.Cursor.POS(52,15)+colorLib.Fore.RED+"Presione 2 para registrar otro empleado")
+    
+def productRegistration(name, price, stock, colorLib, system):
+    products = getProducts()
+    
+    if(len(products) == 0):
+        productId = "p{}".format(1)
+    else:
+        productId = "p{}".format(len(products)+1)
+
+    fields = ["id:", "nombre:", "precio:", "cantidad:"]
+    product = dict(zip(fields, [productId, name, price, stock]))
+    
+    f = open("d08-p14-jose-menendez-W.txt", mode = "a")
+    
+    f.write(str(product)+"\n")
+    f.close()
+
+    system.system('cls')
+    printRegMenu(colorLib,system)
+    print(colorLib.Cursor.POS(52,12)+colorLib.Fore.CYAN+"El producto '"+ name +"' registrado con exito")
+    print(colorLib.Cursor.POS(52,14)+colorLib.Fore.RED+"Presione ESC para regresar al menu")
+    print(colorLib.Cursor.POS(52,15)+colorLib.Fore.RED+"Presione 3 para registrar otro producto")
+
+def regSelection(colorLib, system, inp, sub):
+    step = 1
+    while(True):
+        opc = ord(inp())
+        
+        if(opc == 80):
+            if(step == 4):
+                step = 1
+            else:
+                step += 1
+            registrationOpc(colorLib, system, step)
+        elif(opc == 72):
+            if(step == 1):
+                step = 4
+            else:
+                step -= 1
+            registrationOpc(colorLib, system, step)
+        
+        if((opc == 13) & (step == 1)) | (opc == 49):
+            
+            system.system('cls')
+            printRegMenu(colorLib,system)                 
+            
+            print(colorLib.Cursor.POS(52,12)+colorLib.Fore.CYAN+"Registro de Fruteria")
+            sub.run('', shell = True)
+            
+            print(colorLib.Cursor.POS(52,14)+colorLib.Fore.CYAN+"Ingrese el nombre de la fruteria:")
+            print(colorLib.Cursor.POS(52,15)+colorLib.Fore.RED+'-> \0337')
+            name = str(input('\0338'))
+            
+            try:
+                print(colorLib.Cursor.POS(52,16)+colorLib.Fore.CYAN+"Ingrese el telefono de la fruteria:")
+                print(colorLib.Cursor.POS(52,17)+colorLib.Fore.RED+'-> \0337')
+                phone = int(input('\0338'))                   
+            except:
+                print(colorLib.Cursor.POS(52,16)+colorLib.Fore.CYAN+"Ingrese el telefono de la fruteria (solo numeros):")
+                print(colorLib.Cursor.POS(52,17)+colorLib.Fore.RED+'-> \0337')
+                phone = int(input('\0338')) 
+                
+            print(colorLib.Cursor.POS(52,18)+colorLib.Fore.CYAN+"Ingrese el correo de la fruteria:")
+            print(colorLib.Cursor.POS(52,19)+colorLib.Fore.RED+'-> \0337')
+            mail = str(input('\0338'))
+            
+            while(mail.find("@") == -1 ) | (mail.endswith(".com") == False):
+                print(colorLib.Cursor.POS(52,18)+colorLib.Fore.RED+"El correo ingresado no es valido (falta '@' o '.com')")
+                print(colorLib.Cursor.POS(52,19)+colorLib.Fore.CYAN+"Ingrese un correo valido:")
+                print(colorLib.Cursor.POS(52,20)+colorLib.Fore.RED+'-> \0337')
+                mail = str(input('\0338'))
+            
+            storeRegistration(name, phone, mail, colorLib, system)
+
+        if((opc == 13) & (step == 2)) | (opc == 50):
+            system.system('cls')
+            printRegMenu(colorLib,system)                 
+            
+            print(colorLib.Cursor.POS(52,12)+colorLib.Fore.CYAN+"Registro de Empleado")
+            sub.run('', shell = True)
+            
+            print(colorLib.Cursor.POS(52,14)+colorLib.Fore.CYAN+"Ingrese el nombre del empleado:")
+            print(colorLib.Cursor.POS(52,15)+colorLib.Fore.RED+'-> \0337')
+            name = str(input('\0338'))
+
+            try:
+                print(colorLib.Cursor.POS(52,16)+colorLib.Fore.CYAN+"Ingrese el salario del empleado:")
+                print(colorLib.Cursor.POS(52,17)+colorLib.Fore.RED+'-> $\0337')
+                salary = int(input('\0338'))
+            except:
+                print(colorLib.Cursor.POS(52,16)+colorLib.Fore.CYAN+"Ingrese el salario del empleado (solo numeros):")
+                print(colorLib.Cursor.POS(52,17)+colorLib.Fore.RED+'-> $\0337')
+                salary = int(input('\0338'))
+            
+            employeeRegistration(name, salary, colorLib, system)
+        
+        if((opc == 13) & (step == 3)) | (opc == 51):
+            system.system('cls')
+            printRegMenu(colorLib,system)                 
+            
+            print(colorLib.Cursor.POS(52,12)+colorLib.Fore.CYAN+"Registro de Producto")
+            sub.run('', shell = True) 
+            
+            print(colorLib.Cursor.POS(52,14)+colorLib.Fore.CYAN+"Ingrese el nombre del producto:")
+            print(colorLib.Cursor.POS(52,15)+colorLib.Fore.RED+'-> \0337')
+            name = str(input('\0338'))
+            
+            try:
+                print(colorLib.Cursor.POS(52,16)+colorLib.Fore.CYAN+"Ingrese el precio del producto:")
+                print(colorLib.Cursor.POS(52,17)+colorLib.Fore.RED+'-> $\0337')
+                price = int(input('\0338'))
+            except:
+                print(colorLib.Cursor.POS(52,16)+colorLib.Fore.CYAN+"Ingrese el precio del producto (solo numeros):")
+                print(colorLib.Cursor.POS(52,17)+colorLib.Fore.RED+'-> $\0337')
+                price = int(input('\0338'))
+            
+            try:
+                print(colorLib.Cursor.POS(52,18)+colorLib.Fore.CYAN+"Ingrese el stock (cantidad) del producto:")
+                print(colorLib.Cursor.POS(52,19)+colorLib.Fore.RED+'-> $\0337')
+                stock = int(input('\0338'))
+            except:
+                print(colorLib.Cursor.POS(52,18)+colorLib.Fore.CYAN+"Ingrese el stock del producto (solo numeros):")
+                print(colorLib.Cursor.POS(52,19)+colorLib.Fore.RED+'-> $\0337')
+                stock = int(input('\0338'))
+                
+            productRegistration(name, price, stock, colorLib, system)
+        if((opc == 13) & (step == 4)) | (opc == 27):
+            menu()
+
 def menu():
     import colorama
     import os, sys, subprocess
@@ -165,7 +422,8 @@ def menu():
     system = os
     colorLib = colorama
     colorLib.init(autoreset=True)
-    
+    inp = getch
+    sub = subprocess
     os.system('cls')
     frameColor = colorLib.Fore.GREEN
     menuFrameColor = colorLib.Fore.YELLOW
@@ -195,74 +453,23 @@ def menu():
         
         #REGISTRO
         if((opc == 13) & (step == 1)) | (opc == 49):
-            frameColor = colorLib.Fore.RED
-            frame(colorLib,system,frameColor)
-            innerFrameColor = colorLib.Fore.RED
-            innerFrame(colorLib, system, innerFrameColor)
-            registrationSign(colorLib)
-            
+            printRegMenu(colorLib,system)
+              
             print(colorLib.Cursor.POS(52,12)+colorLib.Fore.CYAN+"¿Que desea registrar?")
-            registrationOpc(colorLib, system)
             
-            step = 1
-            while(True):
-                opc = ord(getch())
-                
-                if(opc == 80):
-                    if(step == 4):
-                        step = 1
-                    else:
-                        step += 1
-                    registrationOpc(colorLib, system, step)
-                elif(opc == 72):
-                    if(step == 1):
-                        step = 4
-                    else:
-                        step -= 1
-                    registrationOpc(colorLib, system, step)
-            # subprocess.run('', shell = True)
-            # print(colorLib.Cursor.POS(46, 12)+colorLib.Fore.GREEN+'-> \0337')
-            # name = str(input('\0338'))
-
+            registrationOpc(colorLib, system)
+            regSelection(colorLib, system, inp, sub)
+        
         #BAJAS
         if((opc == 13) & (step == 2)) | (opc == 50):
             os.system('cls')
-            frameColor = colorLib.Fore.CYAN
-            frame(colorLib,system,frameColor)
-            innerFrameColor = colorLib.Fore.CYAN
-            innerFrame(colorLib, system, innerFrameColor)
-            deleteSign(colorLib)
+            printDelMenu(colorLib,system)
             
-            # step = 0
-            # selectFile(txtFiles,step)
-            
-            # while(True):
-            #     opc = ord(getch())
-            #     if(opc == 80):
-            #         if(step == len(txtFiles)-1):
-            #             step = 0
-            #         else:
-            #             step += 1
-            #         # selectFile(txtFiles,step)
-            #     elif(opc == 72):
-            #         if(step == 0):
-            #             step = len(txtFiles)-1   
-            #         else:
-            #             step -= 1
-            #         # selectFile(txtFiles,step)
-            #     elif(opc == 13):
-            #         # editFile(txtFiles[step], txtFiles)
-            #     # elif(opc == 27):
-            #     #     menu()
             
         #VENTAS
         if((opc == 13) & (step == 3)) | (opc == 51):
             os.system('cls')
-            frameColor = colorLib.Fore.YELLOW
-            frame(colorLib,system,frameColor)
-            innerFrameColor = colorLib.Fore.YELLOW
-            innerFrame(colorLib, system, innerFrameColor)
-            salesSign(colorLib)
+            printSalesMenu(colorLib,system)
             
         #SALIR
         if((opc == 13) & (step == 4)) | (opc == 52):
