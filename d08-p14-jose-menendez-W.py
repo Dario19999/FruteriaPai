@@ -19,21 +19,40 @@ def menuOpc(colorLib, system,selected = 1):
     
 def registrationOpc(colorLib, system,selected = 1):
     if(selected == 1):
-        print(colorLib.Cursor.POS(50, 14)+colorLib.Fore.CYAN+colorLib.Back.WHITE+"      [1] Fruteria        ")
+        print(colorLib.Cursor.POS(45, 10)+colorLib.Fore.CYAN+colorLib.Back.WHITE+"      [1] Fruteria        ")
     else:
-        print(colorLib.Cursor.POS(50, 14)+colorLib.Fore.RED+"      [1] Fruteria        ")
+        print(colorLib.Cursor.POS(45, 10)+colorLib.Fore.RED+"      [1] Fruteria        ")
     if(selected == 2):
-        print(colorLib.Cursor.POS(50, 16)+colorLib.Fore.CYAN+colorLib.Back.WHITE+"      [2] Empleado        ")
+        print(colorLib.Cursor.POS(45, 12)+colorLib.Fore.CYAN+colorLib.Back.WHITE+"      [2] Empleado        ")
     else:
-        print(colorLib.Cursor.POS(50, 16)+colorLib.Fore.RED+"      [2] Empleado          ")
+        print(colorLib.Cursor.POS(45, 12)+colorLib.Fore.RED+"      [2] Empleado          ")
     if(selected == 3):
-        print(colorLib.Cursor.POS(50, 18)+colorLib.Fore.CYAN+colorLib.Back.WHITE+"      [3] Producto        ")
+        print(colorLib.Cursor.POS(45, 14)+colorLib.Fore.CYAN+colorLib.Back.WHITE+"      [3] Producto        ")
     else:
-        print(colorLib.Cursor.POS(50, 18)+colorLib.Fore.RED+"      [3] Producto        ")
+        print(colorLib.Cursor.POS(45, 14)+colorLib.Fore.RED+"      [3] Producto        ")
     if(selected == 4):
-        print(colorLib.Cursor.POS(50, 20)+colorLib.Fore.CYAN+colorLib.Back.WHITE+"      [ESC] Ir al menu    ")
+        print(colorLib.Cursor.POS(45, 16)+colorLib.Fore.CYAN+colorLib.Back.WHITE+"      [ESC] Ir al menu    ")
     else:
-        print(colorLib.Cursor.POS(50, 20)+colorLib.Fore.RED+"      [ESC] Ir al Menu       ")
+        print(colorLib.Cursor.POS(45, 16)+colorLib.Fore.RED+"      [ESC] Ir al Menu       ")
+    print(colorLib.Cursor.POS(28,28))
+
+def deleteOpc(colorLib, system,selected = 1):
+    if(selected == 1):
+        print(colorLib.Cursor.POS(45, 10)+colorLib.Fore.RED+colorLib.Back.WHITE+"      [1] Fruteria        ")
+    else:
+        print(colorLib.Cursor.POS(45, 10)+colorLib.Fore.CYAN+"      [1] Fruteria        ")
+    if(selected == 2):
+        print(colorLib.Cursor.POS(45, 12)+colorLib.Fore.RED+colorLib.Back.WHITE+"      [2] Empleado        ")
+    else:
+        print(colorLib.Cursor.POS(45, 12)+colorLib.Fore.CYAN+"      [2] Empleado          ")
+    if(selected == 3):
+        print(colorLib.Cursor.POS(45, 14)+colorLib.Fore.RED+colorLib.Back.WHITE+"      [3] Producto        ")
+    else:
+        print(colorLib.Cursor.POS(45, 14)+colorLib.Fore.CYAN+"      [3] Producto        ")
+    if(selected == 4):
+        print(colorLib.Cursor.POS(45, 16)+colorLib.Fore.RED+colorLib.Back.WHITE+"      [ESC] Ir al menu    ")
+    else:
+        print(colorLib.Cursor.POS(45, 16)+colorLib.Fore.CYAN+"      [ESC] Ir al Menu       ")
     print(colorLib.Cursor.POS(28,28))
 
 def menuInfo(colorLib):
@@ -60,15 +79,20 @@ def menuInfo(colorLib):
     print(colorLib.Cursor.POS(8,20)+colorLib.Fore.GREEN+"x---------------------------x")
 
 def registrationSign(colorLib):
-    print(colorLib.Cursor.POS(8,4)+colorLib.Fore.CYAN+"______           _     _             ")
-    print(colorLib.Cursor.POS(8,5)+colorLib.Fore.CYAN+"| ___ \         (_)   | |            ")
-    print(colorLib.Cursor.POS(8,6)+colorLib.Fore.CYAN+"| |_/ /___  __ _ _ ___| |_ _ __ ___  ")
-    print(colorLib.Cursor.POS(8,7)+colorLib.Fore.CYAN+"|    // _ \/ _` | / __| __| '__/ _ \ ")
-    print(colorLib.Cursor.POS(8,8)+colorLib.Fore.CYAN+"| |\ \  __/ (_| | \__ \ |_| | | (_) |")
-    print(colorLib.Cursor.POS(8,9)+colorLib.Fore.CYAN+"\_| \_\___|\__, |_|___/\__|_|  \___/ ")
-    print(colorLib.Cursor.POS(8,10)+colorLib.Fore.CYAN+"            __/ |                    ")
-    print(colorLib.Cursor.POS(8,11)+colorLib.Fore.CYAN+"           |___/                     ")
-
+    print(colorLib.Cursor.POS(77,4)+colorLib.Fore.CYAN+"______           _     _             ")
+    print(colorLib.Cursor.POS(77,5)+colorLib.Fore.CYAN+"| ___ \         (_)   | |            ")
+    print(colorLib.Cursor.POS(77,6)+colorLib.Fore.CYAN+"| |_/ /___  __ _ _ ___| |_ _ __ ___  ")
+    print(colorLib.Cursor.POS(77,7)+colorLib.Fore.CYAN+"|    // _ \/ _` | / __| __| '__/ _ \ ")
+    print(colorLib.Cursor.POS(77,8)+colorLib.Fore.CYAN+"| |\ \  __/ (_| | \__ \ |_| | | (_) |")
+    print(colorLib.Cursor.POS(77,9)+colorLib.Fore.CYAN+"\_| \_\___|\__, |_|___/\__|_|  \___/ ")
+    print(colorLib.Cursor.POS(77,10)+colorLib.Fore.CYAN+"            __/ |                    ")
+    print(colorLib.Cursor.POS(77,11)+colorLib.Fore.CYAN+"           |___/                     ")
+    
+    print(colorLib.Cursor.POS(82,13)+colorLib.Fore.CYAN+"[FLECHA-ARRIBA] Mover Arriba")
+    print(colorLib.Cursor.POS(82,14)+colorLib.Fore.CYAN+"[FLECHA-ABAJO] Mover Abajo")
+    print(colorLib.Cursor.POS(82,15)+colorLib.Fore.CYAN+"[ENTER] Seleccionar")
+    print(colorLib.Cursor.POS(82,16)+colorLib.Fore.CYAN+"[ESC] Salir al menu")
+    
 def salesSign(colorLib):
     print(colorLib.Cursor.POS(47,4)+colorLib.Fore.GREEN+" _   _            _             ")
     print(colorLib.Cursor.POS(47,5)+colorLib.Fore.GREEN+"| | | |          | |            ")
@@ -78,14 +102,19 @@ def salesSign(colorLib):
     print(colorLib.Cursor.POS(47,9)+colorLib.Fore.GREEN+" \___/ \___|_| |_|\__\__,_|___/ ")
                                
 def deleteSign(colorLib):
-    print(colorLib.Cursor.POS(47,4)+colorLib.Fore.RED+"______       _            ")
-    print(colorLib.Cursor.POS(47,5)+colorLib.Fore.RED+"| ___ \     (_)           ")
-    print(colorLib.Cursor.POS(47,6)+colorLib.Fore.RED+"| |_/ / __ _ _  __ _ ___  ")
-    print(colorLib.Cursor.POS(47,7)+colorLib.Fore.RED+"| ___ \/ _` | |/ _` / __| ")
-    print(colorLib.Cursor.POS(47,8)+colorLib.Fore.RED+"| |_/ / (_| | | (_| \__ \ ")
-    print(colorLib.Cursor.POS(47,9)+colorLib.Fore.RED+"\____/ \__,_| |\__,_|___/ ")
-    print(colorLib.Cursor.POS(47,10)+colorLib.Fore.RED+"           _/ |           ")
-    print(colorLib.Cursor.POS(47,11)+colorLib.Fore.RED+"          |__/            ")
+    print(colorLib.Cursor.POS(82,4)+colorLib.Fore.RED+"______       _            ")
+    print(colorLib.Cursor.POS(82,5)+colorLib.Fore.RED+"| ___ \     (_)           ")
+    print(colorLib.Cursor.POS(82,6)+colorLib.Fore.RED+"| |_/ / __ _ _  __ _ ___  ")
+    print(colorLib.Cursor.POS(82,7)+colorLib.Fore.RED+"| ___ \/ _` | |/ _` / __| ")
+    print(colorLib.Cursor.POS(82,8)+colorLib.Fore.RED+"| |_/ / (_| | | (_| \__ \ ")
+    print(colorLib.Cursor.POS(82,9)+colorLib.Fore.RED+"\____/ \__,_| |\__,_|___/ ")
+    print(colorLib.Cursor.POS(82,10)+colorLib.Fore.RED+"           _/ |           ")
+    print(colorLib.Cursor.POS(82,11)+colorLib.Fore.RED+"          |__/            ")
+    
+    print(colorLib.Cursor.POS(82,13)+colorLib.Fore.RED+"[FLECHA-ARRIBA] Mover Arriba")
+    print(colorLib.Cursor.POS(82,14)+colorLib.Fore.RED+"[FLECHA-ABAJO] Mover Abajo")
+    print(colorLib.Cursor.POS(82,15)+colorLib.Fore.RED+"[ENTER] Seleccionar")
+    print(colorLib.Cursor.POS(82,16)+colorLib.Fore.RED+"[ESC] Salir al menu")
 
 def frame(colorLib, system, color):
     system.system('cls')
@@ -250,7 +279,7 @@ def storeRegistration(name, phone, mail, colorLib, system):
     else:
         storeId = "t{}".format(len(stores)+1)
             
-    fields = ["id:", "nombre:", "telefono:", "correo:"]
+    fields = ["id", "nombre", "telefono", "correo"]
     store = dict(zip(fields, [storeId, name, phone, mail]))
 
     f = open("d08-p14-jose-menendez-W.txt", mode = "a")
@@ -273,7 +302,7 @@ def employeeRegistration(name, salary, colorLib, system):
     else:
         employeeId = "e{}".format(len(employees)+1)
 
-    fields = ["id:", "nombre:", "salario:"]
+    fields = ["id", "nombre", "salario"]
     employee = dict(zip(fields, [employeeId, name, salary]))
     
     f = open("d08-p14-jose-menendez-W.txt", mode = "a")
@@ -295,7 +324,7 @@ def productRegistration(name, price, stock, colorLib, system):
     else:
         productId = "p{}".format(len(products)+1)
 
-    fields = ["id:", "nombre:", "precio:", "cantidad:"]
+    fields = ["id", "nombre", "precio", "cantidad"]
     product = dict(zip(fields, [productId, name, price, stock]))
     
     f = open("d08-p14-jose-menendez-W.txt", mode = "a")
@@ -412,9 +441,230 @@ def regSelection(colorLib, system, inp, sub):
                 stock = int(input('\0338'))
                 
             productRegistration(name, price, stock, colorLib, system)
+
         if((opc == 13) & (step == 4)) | (opc == 27):
             menu()
 
+def delOpc(colorLib, system, toDelete = "", selected = 1):
+    
+    if(toDelete == "s"):
+        stores = getStores()
+        print(colorLib.Cursor.POS(9,8)+colorLib.Fore.RED+"Id:"+"         "+"Nombre:")
+        if(len(stores) == 0):
+            print(colorLib.Cursor.POS(44,8)+colorLib.Fore.CYAN+"No hay fruterias para mostrar")
+            print(colorLib.Cursor.POS(44,9)+colorLib.Fore.CYAN+"Primero debe registrar una fruteria")
+        else:
+            cont = 1
+            for store in stores:
+                cont += 1
+                storeId = store['id']
+                storeName = store['nombre']
+                if(cont-1 == selected):
+                    print(colorLib.Cursor.POS(9,8+cont)+colorLib.Fore.RED+colorLib.Back.WHITE+storeId+"           "+storeName)
+                else:
+                    print(colorLib.Cursor.POS(9,8+cont)+colorLib.Fore.CYAN+storeId+"           "+storeName)
+    elif(toDelete == "e"):
+        employees = getEmployees()
+        print(colorLib.Cursor.POS(9,8)+colorLib.Fore.RED+"Id:"+"         "+"Nombre:")
+        if(len(employees) == 0):
+            print(colorLib.Cursor.POS(44,8)+colorLib.Fore.CYAN+"No hay empleados para mostrar")
+            print(colorLib.Cursor.POS(44,9)+colorLib.Fore.CYAN+"Primero debe registrar un empleado")
+        else:
+            cont = 1
+            for employee in employees:
+                cont += 1
+                empId = employee['id']
+                empName = employee['nombre']
+                if(cont-1 == selected):
+                    print(colorLib.Cursor.POS(9,8+cont)+colorLib.Fore.RED+colorLib.Back.WHITE+empId+"           "+empName)
+                else:
+                    print(colorLib.Cursor.POS(9,8+cont)+colorLib.Fore.CYAN+empId+"           "+empName)
+    elif(toDelete == "p"):
+        products = getProducts()
+        print(colorLib.Cursor.POS(9,5)+colorLib.Fore.RED+"Id:"+"          "+"Nombre:"+"                     "+"Cantidad:")
+        if(len(products) == 0):
+            print(colorLib.Cursor.POS(44,8)+colorLib.Fore.CYAN+"No hay productos para mostrar")
+            print(colorLib.Cursor.POS(44,9)+colorLib.Fore.CYAN+"Primero debe registrar un producto")
+        else:
+            cont = 1
+            for product in products:
+                cont += 1
+                productId = product['id']
+                productName = product['nombre']
+                productCount = str(product['cantidad'])
+                if(cont-1 == selected):
+                    print(colorLib.Cursor.POS(9,5+cont)+colorLib.Fore.RED+colorLib.Back.WHITE+productId)
+                    print(colorLib.Cursor.POS(22,5+cont)+colorLib.Fore.RED+colorLib.Back.WHITE+productName)
+                    print(colorLib.Cursor.POS(54,5+cont)+colorLib.Fore.RED+colorLib.Back.WHITE+productCount)
+                else:
+                    print(colorLib.Cursor.POS(9,5+cont)+colorLib.Fore.CYAN+productId)
+                    print(colorLib.Cursor.POS(22,5+cont)+colorLib.Fore.CYAN+productName)
+                    print(colorLib.Cursor.POS(54,5+cont)+colorLib.Fore.CYAN+productCount)
+
+def deleteStore(colorLib, system, store):
+    f = open("d08-p14-jose-menendez-W.txt", mode = "r")
+    lines = f.readlines()
+    f.close()
+    
+    del lines[store]
+    
+    f = open("d08-p14-jose-menendez-W.txt", mode = "w+")
+    for line in lines:
+        f.write(line)        
+    f.close()
+    
+    system.system('cls')
+    printDelMenu(colorLib,system)
+    
+    print(colorLib.Cursor.POS(30,12)+colorLib.Fore.CYAN+"La fruteria ha sido eliminada exitosamente")
+    print(colorLib.Cursor.POS(30,14)+colorLib.Fore.RED+"Presione ESC para regresar al menu")
+
+def deleteEmployee(colorLib, system, employee):
+    f = open("d08-p14-jose-menendez-W.txt", mode = "r")
+    lines = f.readlines()
+    f.close()
+    
+    del lines[employee]
+    
+    f = open("d08-p14-jose-menendez-W.txt", mode = "w+")
+    for line in lines:
+        f.write(line)        
+    f.close()
+    
+    system.system('cls')
+    printDelMenu(colorLib,system)
+    
+    print(colorLib.Cursor.POS(30,12)+colorLib.Fore.CYAN+"El empleado ha sido erradicado exitosamente")
+    print(colorLib.Cursor.POS(30,14)+colorLib.Fore.RED+"Presione ESC para regresar al menu")
+
+def deleteProduct(colorLib, system, product):
+    f = open("d08-p14-jose-menendez-W.txt", mode = "r")
+    lines = f.readlines()
+    f.close()
+    
+    del lines[product]
+    
+    f = open("d08-p14-jose-menendez-W.txt", mode = "w+")
+    for line in lines:
+        f.write(line)        
+    f.close()
+    
+    system.system('cls')
+    printDelMenu(colorLib,system)
+    
+    print(colorLib.Cursor.POS(30,12)+colorLib.Fore.CYAN+"El producto ha sido eliminado exitosamente")
+    print(colorLib.Cursor.POS(30,14)+colorLib.Fore.RED+"Presione ESC para regresar al menu")
+
+
+def delSelection(colorLib, system, inp):
+    step = 1
+    while(True):
+        opc = ord(inp())
+        
+        if(opc == 80):
+            if(step == 4):
+                step = 1
+            else:
+                step += 1
+            deleteOpc(colorLib, system, step)
+        elif(opc == 72):
+            if(step == 1):
+                step = 4
+            else:
+                step -= 1
+            deleteOpc(colorLib, system, step)
+        
+        if((opc == 13) & (step == 1)) | (opc == 49):
+            system.system('cls')
+            printDelMenu(colorLib,system)
+            
+            toDelete = "s"
+            delOpc(colorLib, system, toDelete)
+            
+            stores = getStores()
+            
+            step = 1
+            while(True):
+                opc = ord(inp())
+                if(opc == 80):
+                    if(step == len(stores)):
+                        step = 1
+                    else:
+                        step += 1
+                    delOpc(colorLib, system, toDelete, step)
+                elif(opc == 72):
+                    if(step == 1):
+                        step = len(stores)    
+                    else:
+                        step -= 1
+                    delOpc(colorLib, system, toDelete, step)
+                elif(opc == 13):
+                    deleteStore(colorLib, system, step-1)
+                elif(opc == 27):
+                    menu()
+                    
+
+        if((opc == 13) & (step == 2)) | (opc == 50):
+            system.system('cls')
+            printDelMenu(colorLib,system)
+            
+            toDelete = "e"
+            delOpc(colorLib, system, toDelete)
+            
+            empCount = len(getEmployees())
+            
+            step = 1
+            while(True):
+                opc = ord(inp())
+                if(opc == 80):
+                    if(step == empCount):
+                        step = 1
+                    else:
+                        step += 1
+                    delOpc(colorLib, system, toDelete, step)
+                elif(opc == 72):
+                    if(step == 1):
+                        step = empCount    
+                    else:
+                        step -= 1
+                    delOpc(colorLib, system, toDelete, step)
+                elif(opc == 13):
+                    deleteEmployee(colorLib, system, step-1)
+                elif(opc == 27):
+                    menu()
+
+        if((opc == 13) & (step == 3)) | (opc == 51):
+            system.system('cls')
+            printDelMenu(colorLib,system)
+            
+            toDelete = "p"
+            delOpc(colorLib, system, toDelete)
+            
+            productCount = len(getProducts())
+            
+            step = 1
+            while(True):
+                opc = ord(inp())
+                if(opc == 80):
+                    if(step == productCount):
+                        step = 1
+                    else:
+                        step += 1
+                    delOpc(colorLib, system, toDelete, step)
+                elif(opc == 72):
+                    if(step == 1):
+                        step = productCount    
+                    else:
+                        step -= 1
+                    delOpc(colorLib, system, toDelete, step)
+                elif(opc == 13):
+                    deleteProduct(colorLib, system, step-1)
+                elif(opc == 27):
+                    menu()
+
+        if((opc == 13) & (step == 4)) | (opc == 27):
+            menu()
+        
 def menu():
     import colorama
     import os, sys, subprocess
@@ -455,7 +705,7 @@ def menu():
         if((opc == 13) & (step == 1)) | (opc == 49):
             printRegMenu(colorLib,system)
               
-            print(colorLib.Cursor.POS(52,12)+colorLib.Fore.CYAN+"¿Que desea registrar?")
+            print(colorLib.Cursor.POS(47,8)+colorLib.Fore.CYAN+"¿Que desea registrar?")
             
             registrationOpc(colorLib, system)
             regSelection(colorLib, system, inp, sub)
@@ -465,6 +715,10 @@ def menu():
             os.system('cls')
             printDelMenu(colorLib,system)
             
+            print(colorLib.Cursor.POS(47,8)+colorLib.Fore.RED+"¿Que desea dar de baja?")
+            
+            deleteOpc(colorLib, system)
+            delSelection(colorLib, system, inp)
             
         #VENTAS
         if((opc == 13) & (step == 3)) | (opc == 51):
