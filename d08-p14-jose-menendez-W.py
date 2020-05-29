@@ -1,3 +1,13 @@
+# x---------------------------x
+# practica 14
+# menendez gomez jose dario
+# chavez romo jonathan eduardo
+# espinoza torres daniel alejandro
+# herrera vazquez oscar ivan
+# Seccion: D08
+# Lunes y Miercoles 13:00 - 14:55
+# x---------------------------x
+
 def menuOpc(colorLib, system,selected = 1):
     if(selected == 1):
         print(colorLib.Cursor.POS(50, 12)+colorLib.Fore.GREEN+colorLib.Back.WHITE+"      [1] Registro      ")
@@ -104,7 +114,7 @@ def salesSign(colorLib):
     print(colorLib.Cursor.POS(82,13)+colorLib.Fore.GREEN+"[FLECHA-ARRIBA] Mover Arriba")
     print(colorLib.Cursor.POS(82,14)+colorLib.Fore.GREEN+"[FLECHA-ABAJO] Mover Abajo")
     print(colorLib.Cursor.POS(82,15)+colorLib.Fore.GREEN+"[ENTER] Seleccionar")
-    print(colorLib.Cursor.POS(82,16)+colorLib.Fore.GREEN+"[ESC] Cancelar")
+    print(colorLib.Cursor.POS(82,16)+colorLib.Fore.GREEN+"[ESC] Ir al menu")
 
 def deleteSign(colorLib):
     print(colorLib.Cursor.POS(82,4)+colorLib.Fore.RED+"______       _            ")
@@ -252,7 +262,8 @@ def getEmployees():
                 employee = ast.literal_eval(line)
                 employees.append(employee)
         count += 1
-        
+    
+    
     return employees
 
 def getProducts():
@@ -278,12 +289,17 @@ def getProducts():
 def storeRegistration(name, phone, mail, colorLib, system):
 
     stores = getStores()
-    
+    count = 1
     if(len(stores) == 0):
         storeId = "t{}".format(1)
-    else:
-        storeId = "t{}".format(len(stores)+1)
-            
+    
+    for s in stores:
+        count += 1
+        if(s['id'].endswith(str(count))):
+            storeId = "t{}".format(count+1)
+        elif(s['id'].endswith(str(count)) == False):
+            storeId = "t{}".format(len(stores)+1)   
+             
     fields = ["id", "nombre", "telefono", "correo"]
     store = dict(zip(fields, [storeId, name, phone, mail]))
 
@@ -294,19 +310,25 @@ def storeRegistration(name, phone, mail, colorLib, system):
     
     system.system('cls')
     printRegMenu(colorLib,system)
-    print(colorLib.Cursor.POS(52,12)+colorLib.Fore.CYAN+"Fruteria '"+ name +"' registrada con exito")
-    print(colorLib.Cursor.POS(52,14)+colorLib.Fore.RED+"Presione ESC para regresar al menu")
-    print(colorLib.Cursor.POS(52,15)+colorLib.Fore.RED+"Presione 1 para registrar otra fruteria")
+    print(colorLib.Cursor.POS(38,12)+colorLib.Fore.CYAN+"Fruteria '"+ name +"' registrada con exito")
+    print(colorLib.Cursor.POS(38,14)+colorLib.Fore.RED+"Presione ESC para regresar al menu")
+    print(colorLib.Cursor.POS(38,15)+colorLib.Fore.RED+"Presione 1 para registrar otra fruteria")
 
 def employeeRegistration(name, salary, colorLib, system):
     
     employees = getEmployees()
-    
+    count = 1
     if(len(employees) == 0):
         employeeId = "e{}".format(1)
-    else:
-        employeeId = "e{}".format(len(employees)+1)
-
+        
+    for e in employees:
+        count += 1
+        if(e['id'].endswith(str(count))):
+            employeeId = "e{}".format(count+1)
+        elif(e['id'].endswith(str(count)) == False):
+            employeeId = "e{}".format(len(employees)+1)
+        
+            
     fields = ["id", "nombre", "salario"]
     employee = dict(zip(fields, [employeeId, name, salary]))
     
@@ -317,18 +339,24 @@ def employeeRegistration(name, salary, colorLib, system):
 
     system.system('cls')
     printRegMenu(colorLib,system)
-    print(colorLib.Cursor.POS(52,12)+colorLib.Fore.CYAN+"El empleado '"+ name +"' registrado con exito")
-    print(colorLib.Cursor.POS(52,14)+colorLib.Fore.RED+"Presione ESC para regresar al menu")
-    print(colorLib.Cursor.POS(52,15)+colorLib.Fore.RED+"Presione 2 para registrar otro empleado")
+    print(colorLib.Cursor.POS(38,12)+colorLib.Fore.CYAN+"El empleado '"+ name +"' registrado con exito")
+    print(colorLib.Cursor.POS(38,14)+colorLib.Fore.RED+"Presione ESC para regresar al menu")
+    print(colorLib.Cursor.POS(38,15)+colorLib.Fore.RED+"Presione 2 para registrar otro empleado")
     
 def productRegistration(name, price, stock, colorLib, system):
-    products = getProducts()
     
+    products = getProducts()
+    count = 1
     if(len(products) == 0):
         productId = "p{}".format(1)
-    else:
-        productId = "p{}".format(len(products)+1)
-
+        
+    for p in products:
+        count += 1
+        if(p['id'].endswith(str(count))):
+            productId = "p{}".format(count+1)
+        elif(p['id'].endswith(str(count)) == False):
+            productId = "p{}".format(len(products)+1)
+            
     fields = ["id", "nombre", "precio", "cantidad"]
     product = dict(zip(fields, [productId, name, price, stock]))
     
@@ -339,9 +367,9 @@ def productRegistration(name, price, stock, colorLib, system):
 
     system.system('cls')
     printRegMenu(colorLib,system)
-    print(colorLib.Cursor.POS(52,12)+colorLib.Fore.CYAN+"El producto '"+ name +"' registrado con exito")
-    print(colorLib.Cursor.POS(52,14)+colorLib.Fore.RED+"Presione ESC para regresar al menu")
-    print(colorLib.Cursor.POS(52,15)+colorLib.Fore.RED+"Presione 3 para registrar otro producto")
+    print(colorLib.Cursor.POS(38,12)+colorLib.Fore.CYAN+"El producto '"+ name +"' registrado con exito")
+    print(colorLib.Cursor.POS(38,14)+colorLib.Fore.RED+"Presione ESC para regresar al menu")
+    print(colorLib.Cursor.POS(38,15)+colorLib.Fore.RED+"Presione 3 para registrar otro producto")
 
 def regSelection(colorLib, system, inp, sub):
     step = 1
@@ -366,30 +394,30 @@ def regSelection(colorLib, system, inp, sub):
             system.system('cls')
             printRegMenu(colorLib,system)                 
             
-            print(colorLib.Cursor.POS(52,12)+colorLib.Fore.CYAN+"Registro de Fruteria")
+            print(colorLib.Cursor.POS(42,12)+colorLib.Fore.CYAN+"Registro de Fruteria")
             sub.run('', shell = True)
             
-            print(colorLib.Cursor.POS(52,14)+colorLib.Fore.CYAN+"Ingrese el nombre de la fruteria:")
-            print(colorLib.Cursor.POS(52,15)+colorLib.Fore.RED+'-> \0337')
+            print(colorLib.Cursor.POS(42,14)+colorLib.Fore.CYAN+"Ingrese el nombre de la fruteria:")
+            print(colorLib.Cursor.POS(42,15)+colorLib.Fore.RED+'-> \0337')
             name = str(input('\0338'))
             
             try:
-                print(colorLib.Cursor.POS(52,16)+colorLib.Fore.CYAN+"Ingrese el telefono de la fruteria:")
-                print(colorLib.Cursor.POS(52,17)+colorLib.Fore.RED+'-> \0337')
+                print(colorLib.Cursor.POS(42,16)+colorLib.Fore.CYAN+"Ingrese el telefono de la fruteria:")
+                print(colorLib.Cursor.POS(42,17)+colorLib.Fore.RED+'-> \0337')
                 phone = int(input('\0338'))                   
             except:
-                print(colorLib.Cursor.POS(52,16)+colorLib.Fore.CYAN+"Ingrese el telefono de la fruteria (solo numeros):")
-                print(colorLib.Cursor.POS(52,17)+colorLib.Fore.RED+'-> \0337')
+                print(colorLib.Cursor.POS(42,16)+colorLib.Fore.CYAN+"Ingrese el telefono de la fruteria (solo numeros):")
+                print(colorLib.Cursor.POS(42,17)+colorLib.Fore.RED+'-> \0337')
                 phone = int(input('\0338')) 
                 
-            print(colorLib.Cursor.POS(52,18)+colorLib.Fore.CYAN+"Ingrese el correo de la fruteria:")
-            print(colorLib.Cursor.POS(52,19)+colorLib.Fore.RED+'-> \0337')
+            print(colorLib.Cursor.POS(42,18)+colorLib.Fore.CYAN+"Ingrese el correo de la fruteria:")
+            print(colorLib.Cursor.POS(42,19)+colorLib.Fore.RED+'-> \0337')
             mail = str(input('\0338'))
             
             while(mail.find("@") == -1 ) | (mail.endswith(".com") == False):
-                print(colorLib.Cursor.POS(52,18)+colorLib.Fore.RED+"El correo ingresado no es valido (falta '@' o '.com')")
-                print(colorLib.Cursor.POS(52,19)+colorLib.Fore.CYAN+"Ingrese un correo valido:")
-                print(colorLib.Cursor.POS(52,20)+colorLib.Fore.RED+'-> \0337')
+                print(colorLib.Cursor.POS(42,18)+colorLib.Fore.RED+"El correo ingresado no es valido (falta '@' o '.com')")
+                print(colorLib.Cursor.POS(42,19)+colorLib.Fore.CYAN+"Ingrese un correo valido:")
+                print(colorLib.Cursor.POS(42,20)+colorLib.Fore.RED+'-> \0337')
                 mail = str(input('\0338'))
             
             storeRegistration(name, phone, mail, colorLib, system)
@@ -398,20 +426,20 @@ def regSelection(colorLib, system, inp, sub):
             system.system('cls')
             printRegMenu(colorLib,system)                 
             
-            print(colorLib.Cursor.POS(52,12)+colorLib.Fore.CYAN+"Registro de Empleado")
+            print(colorLib.Cursor.POS(42,12)+colorLib.Fore.CYAN+"Registro de Empleado")
             sub.run('', shell = True)
             
-            print(colorLib.Cursor.POS(52,14)+colorLib.Fore.CYAN+"Ingrese el nombre del empleado:")
-            print(colorLib.Cursor.POS(52,15)+colorLib.Fore.RED+'-> \0337')
+            print(colorLib.Cursor.POS(42,14)+colorLib.Fore.CYAN+"Ingrese el nombre del empleado:")
+            print(colorLib.Cursor.POS(42,15)+colorLib.Fore.RED+'-> \0337')
             name = str(input('\0338'))
 
             try:
-                print(colorLib.Cursor.POS(52,16)+colorLib.Fore.CYAN+"Ingrese el salario del empleado:")
-                print(colorLib.Cursor.POS(52,17)+colorLib.Fore.RED+'-> $\0337')
+                print(colorLib.Cursor.POS(42,16)+colorLib.Fore.CYAN+"Ingrese el salario del empleado:")
+                print(colorLib.Cursor.POS(42,17)+colorLib.Fore.RED+'-> $\0337')
                 salary = int(input('\0338'))
             except:
-                print(colorLib.Cursor.POS(52,16)+colorLib.Fore.CYAN+"Ingrese el salario del empleado (solo numeros):")
-                print(colorLib.Cursor.POS(52,17)+colorLib.Fore.RED+'-> $\0337')
+                print(colorLib.Cursor.POS(42,16)+colorLib.Fore.CYAN+"Ingrese el salario del empleado (solo numeros):")
+                print(colorLib.Cursor.POS(42,17)+colorLib.Fore.RED+'-> $\0337')
                 salary = int(input('\0338'))
             
             employeeRegistration(name, salary, colorLib, system)
@@ -420,29 +448,29 @@ def regSelection(colorLib, system, inp, sub):
             system.system('cls')
             printRegMenu(colorLib,system)                 
             
-            print(colorLib.Cursor.POS(52,12)+colorLib.Fore.CYAN+"Registro de Producto")
+            print(colorLib.Cursor.POS(42,12)+colorLib.Fore.CYAN+"Registro de Producto")
             sub.run('', shell = True) 
             
-            print(colorLib.Cursor.POS(52,14)+colorLib.Fore.CYAN+"Ingrese el nombre del producto:")
-            print(colorLib.Cursor.POS(52,15)+colorLib.Fore.RED+'-> \0337')
+            print(colorLib.Cursor.POS(42,14)+colorLib.Fore.CYAN+"Ingrese el nombre del producto:")
+            print(colorLib.Cursor.POS(42,15)+colorLib.Fore.RED+'-> \0337')
             name = str(input('\0338'))
             
             try:
-                print(colorLib.Cursor.POS(52,16)+colorLib.Fore.CYAN+"Ingrese el precio del producto:")
-                print(colorLib.Cursor.POS(52,17)+colorLib.Fore.RED+'-> $\0337')
+                print(colorLib.Cursor.POS(42,16)+colorLib.Fore.CYAN+"Ingrese el precio del producto:")
+                print(colorLib.Cursor.POS(42,17)+colorLib.Fore.RED+'-> $\0337')
                 price = int(input('\0338'))
             except:
-                print(colorLib.Cursor.POS(52,16)+colorLib.Fore.CYAN+"Ingrese el precio del producto (solo numeros):")
-                print(colorLib.Cursor.POS(52,17)+colorLib.Fore.RED+'-> $\0337')
+                print(colorLib.Cursor.POS(42,16)+colorLib.Fore.CYAN+"Ingrese el precio del producto (solo numeros):")
+                print(colorLib.Cursor.POS(42,17)+colorLib.Fore.RED+'-> $\0337')
                 price = int(input('\0338'))
             
             try:
-                print(colorLib.Cursor.POS(52,18)+colorLib.Fore.CYAN+"Ingrese el stock (cantidad) del producto:")
-                print(colorLib.Cursor.POS(52,19)+colorLib.Fore.RED+'-> $\0337')
+                print(colorLib.Cursor.POS(42,18)+colorLib.Fore.CYAN+"Ingrese el stock (cantidad) del producto:")
+                print(colorLib.Cursor.POS(42,19)+colorLib.Fore.RED+'-> \0337')
                 stock = int(input('\0338'))
             except:
-                print(colorLib.Cursor.POS(52,18)+colorLib.Fore.CYAN+"Ingrese el stock del producto (solo numeros):")
-                print(colorLib.Cursor.POS(52,19)+colorLib.Fore.RED+'-> $\0337')
+                print(colorLib.Cursor.POS(42,18)+colorLib.Fore.CYAN+"Ingrese el stock del producto (solo numeros):")
+                print(colorLib.Cursor.POS(42,19)+colorLib.Fore.RED+'-> \0337')
                 stock = int(input('\0338'))
                 
             productRegistration(name, price, stock, colorLib, system)
@@ -507,15 +535,13 @@ def delOpc(colorLib, system, toDelete = "", selected = 1):
                     print(colorLib.Cursor.POS(54,5+cont)+colorLib.Fore.CYAN+productCount)
                     
 def deleteStore(colorLib, system, store):
-    f = open("d08-p14-jose-menendez-W.txt", mode = "r")
-    lines = f.readlines()
-    f.close()
-    
-    del lines[store]
-    
-    f = open("d08-p14-jose-menendez-W.txt", mode = "w+")
-    for line in lines:
-        f.write(line)        
+    with open("d08-p14-jose-menendez-W.txt", mode = "r") as f:
+        lines = f.readlines()
+
+    with open("d08-p14-jose-menendez-W.txt", mode = "w") as f:
+        for line in lines:
+            if(line.strip("\n") != str(store)):
+                f.write(line)
     f.close()
     
     system.system('cls')
@@ -525,15 +551,13 @@ def deleteStore(colorLib, system, store):
     print(colorLib.Cursor.POS(30,14)+colorLib.Fore.RED+"Presione ESC para regresar al menu")
 
 def deleteEmployee(colorLib, system, employee):
-    f = open("d08-p14-jose-menendez-W.txt", mode = "r")
-    lines = f.readlines()
-    f.close()
-    
-    del lines[employee]
-    
-    f = open("d08-p14-jose-menendez-W.txt", mode = "w+")
-    for line in lines:
-        f.write(line)        
+    with open("d08-p14-jose-menendez-W.txt", mode = "r") as f:
+        lines = f.readlines()
+
+    with open("d08-p14-jose-menendez-W.txt", mode = "w") as f:
+        for line in lines:
+            if(line.strip("\n") != str(employeeSelection)):
+                f.write(line)
     f.close()
     
     system.system('cls')
@@ -543,15 +567,13 @@ def deleteEmployee(colorLib, system, employee):
     print(colorLib.Cursor.POS(30,14)+colorLib.Fore.RED+"Presione ESC para regresar al menu")
 
 def deleteProduct(colorLib, system, product):
-    f = open("d08-p14-jose-menendez-W.txt", mode = "r")
-    lines = f.readlines()
-    f.close()
-    
-    del lines[product]
-    
-    f = open("d08-p14-jose-menendez-W.txt", mode = "w+")
-    for line in lines:
-        f.write(line)        
+    with open("d08-p14-jose-menendez-W.txt", mode = "r") as f:
+        lines = f.readlines()
+
+    with open("d08-p14-jose-menendez-W.txt", mode = "w") as f:
+        for line in lines:
+            if(line.strip("\n") != str(product)):
+                f.write(line)
     f.close()
     
     system.system('cls')
@@ -603,7 +625,8 @@ def delSelection(colorLib, system, inp):
                         step -= 1
                     delOpc(colorLib, system, toDelete, step)
                 elif(opc == 13):
-                    deleteStore(colorLib, system, step-1)
+                    print(stores[step-1])
+                    deleteStore(colorLib, system, stores[step-1])
                 elif(opc == 27):
                     menu()
                     
@@ -615,25 +638,25 @@ def delSelection(colorLib, system, inp):
             toDelete = "e"
             delOpc(colorLib, system, toDelete)
             
-            empCount = len(getEmployees())
+            emps = getEmployees()
             
             step = 1
             while(True):
                 opc = ord(inp())
                 if(opc == 80):
-                    if(step == empCount):
+                    if(step == len(emps)):
                         step = 1
                     else:
                         step += 1
                     delOpc(colorLib, system, toDelete, step)
                 elif(opc == 72):
                     if(step == 1):
-                        step = empCount    
+                        step = len(emps)    
                     else:
                         step -= 1
                     delOpc(colorLib, system, toDelete, step)
                 elif(opc == 13):
-                    deleteEmployee(colorLib, system, step-1)
+                    deleteEmployee(colorLib, system, emps[step-1])
                 elif(opc == 27):
                     menu()
 
@@ -644,25 +667,25 @@ def delSelection(colorLib, system, inp):
             toDelete = "p"
             delOpc(colorLib, system, toDelete)
             
-            productCount = len(getProducts())
+            products = getProducts()
             
             step = 1
             while(True):
                 opc = ord(inp())
                 if(opc == 80):
-                    if(step == productCount):
+                    if(step == len(products)):
                         step = 1
                     else:
                         step += 1
                     delOpc(colorLib, system, toDelete, step)
                 elif(opc == 72):
                     if(step == 1):
-                        step = productCount    
+                        step = len(products)    
                     else:
                         step -= 1
                     delOpc(colorLib, system, toDelete, step)
                 elif(opc == 13):
-                    deleteProduct(colorLib, system, step-1)
+                    deleteProduct(colorLib, system, products[step-1])
                 elif(opc == 27):
                     menu()
 
@@ -705,7 +728,7 @@ def storeSelection(colorLib, system, selected = 1):
         
 def productSelection(colorLib, system, selected = 1):
     products = getProducts()
-    print(colorLib.Cursor.POS(9,5)+colorLib.Fore.GREEN+"Id:"+"          "+"Nombre:"+"                     "+"Cantidad:")
+    print(colorLib.Cursor.POS(9,7)+colorLib.Fore.GREEN+"Id:"+"          "+"Nombre:"+"                     "+"Cantidad:")
     if(len(products) == 0):
         print(colorLib.Cursor.POS(44,8)+colorLib.Fore.YELLOW+"No hay productos, imposible realizar venta")
         print(colorLib.Cursor.POS(44,9)+colorLib.Fore.YELLOW+"Primero debe registrar un producto")
@@ -717,14 +740,129 @@ def productSelection(colorLib, system, selected = 1):
             productName = product['nombre']
             productCount = str(product['cantidad'])
             if(cont-1 == selected):
-                print(colorLib.Cursor.POS(9,5+cont)+colorLib.Fore.RED+colorLib.Back.WHITE+productId)
-                print(colorLib.Cursor.POS(22,5+cont)+colorLib.Fore.RED+colorLib.Back.WHITE+productName)
-                print(colorLib.Cursor.POS(54,5+cont)+colorLib.Fore.RED+colorLib.Back.WHITE+productCount)
+                print(colorLib.Cursor.POS(9,7+cont)+colorLib.Fore.RED+colorLib.Back.WHITE+productId)
+                print(colorLib.Cursor.POS(22,7+cont)+colorLib.Fore.RED+colorLib.Back.WHITE+productName)
+                print(colorLib.Cursor.POS(54,7+cont)+colorLib.Fore.RED+colorLib.Back.WHITE+productCount)
             else:
-                print(colorLib.Cursor.POS(9,5+cont)+colorLib.Fore.CYAN+productId)
-                print(colorLib.Cursor.POS(22,5+cont)+colorLib.Fore.CYAN+productName)
-                print(colorLib.Cursor.POS(54,5+cont)+colorLib.Fore.CYAN+productCount)
-        
+                print(colorLib.Cursor.POS(9,7+cont)+colorLib.Fore.CYAN+productId)
+                print(colorLib.Cursor.POS(22,7+cont)+colorLib.Fore.CYAN+productName)
+                print(colorLib.Cursor.POS(54,7+cont)+colorLib.Fore.CYAN+productCount)
+
+def ticket(colorLib, system, store, emp, product, count):
+    system.system('cls')
+    printSalesMenu(colorLib, system)
+    
+    print(colorLib.Cursor.POS(7,5)+colorLib.Fore.GREEN+"Ticket")
+    
+    print(colorLib.Cursor.POS(7,7)+colorLib.Fore.GREEN+"Fruteria: "+str(store['nombre']))
+    print(colorLib.Cursor.POS(7,8)+colorLib.Fore.GREEN+"Telefono: "+str(store['telefono']))
+    print(colorLib.Cursor.POS(7,9)+colorLib.Fore.GREEN+"Correo: "+str(store['correo']))
+    
+    print(colorLib.Cursor.POS(7,11)+colorLib.Fore.GREEN+"Le atendio: "+str(emp['nombre'])+" con el id "+str(emp['id']))
+    
+    print(colorLib.Cursor.POS(7,13)+colorLib.Fore.GREEN+"Usted compro: "+ str(count) +" "+ str(product['nombre']))
+    print(colorLib.Cursor.POS(7,14)+colorLib.Fore.GREEN+"Precio individual: $"+str(product['precio']))
+    print(colorLib.Cursor.POS(7,15)+colorLib.Fore.GREEN+"Total a pagar: $"+ str(product['precio']*count))
+    
+def saleProcess(colorLib, system, inp):
+    
+    print(colorLib.Cursor.POS(7,6)+colorLib.Fore.GREEN+"Seleccione la sucursal")
+    storeSelection(colorLib, system)
+    
+    stores = getStores()
+    step = 1
+    while(True):
+        opc = ord(inp())
+        if(opc == 80):
+            if(step == len(stores)):
+                step = 1
+            else:
+                step += 1
+            storeSelection(colorLib, system, step)
+        elif(opc == 72):
+            if(step == 1):
+                step = len(stores)    
+            else:
+                step -= 1
+            storeSelection(colorLib, system, step)
+        elif(opc == 13):
+            sSelected = step
+            
+            system.system('cls')
+            printSalesMenu(colorLib, system)
+            
+            print(colorLib.Cursor.POS(7,6)+colorLib.Fore.GREEN+"Seleccione un vendedor para ejecutar la venta")
+            employeeSelection(colorLib,system)
+            emps = getEmployees()
+            step = 1
+            while(True):
+                opc = ord(inp())
+                if(opc == 80):
+                    if(step == len(emps)):
+                        step = 1
+                    else:
+                        step += 1
+                    employeeSelection(colorLib, system, step)
+                elif(opc == 72):
+                    if(step == 1):
+                        step = len(emps)    
+                    else:
+                        step -= 1
+                    employeeSelection(colorLib, system, step)
+                elif(opc == 13):
+                    eSelected = step
+                    system.system('cls')
+                    printSalesMenu(colorLib, system)
+                    
+                    print(colorLib.Cursor.POS(7,5)+colorLib.Fore.GREEN+"Seleccione el producto que esta vendiendo")
+                    productSelection(colorLib,system)
+                    products = getProducts()
+                    step = 1
+                    while(True):
+                        opc = ord(inp())
+                        if(opc == 80):
+                            if(step == len(products)):
+                                step = 1
+                            else:
+                                step += 1
+                            productSelection(colorLib, system, step)
+                        elif(opc == 72):
+                            if(step == 1):
+                                step = len(products)    
+                            else:
+                                step -= 1
+                            productSelection(colorLib, system, step)
+                        elif(opc == 13):
+                            pSelected = step
+                            
+                            try:
+                                print(colorLib.Cursor.POS(63,18)+colorLib.Fore.GREEN+"Ingrese la cantidad del producto que va a vender:")
+                                print(colorLib.Cursor.POS(63,19)+colorLib.Fore.GREEN+'-> \0337')
+                                count = int(input('\0338'))
+                                while(count > products[pSelected-1]['cantidad']):            
+                                    print(colorLib.Cursor.POS(63,20)+colorLib.Fore.RED+"No contamos con la cantidad suficiente:")
+                                    print(colorLib.Cursor.POS(63,21)+colorLib.Fore.GREEN+"Ingrese la cantidad nuevamente:")
+                                    print(colorLib.Cursor.POS(63,22)+colorLib.Fore.GREEN+'-> \0337')
+                                    count = int(input('\0338'))            
+                                                 
+                            except:
+                                print(colorLib.Cursor.POS(63,18)+colorLib.Fore.GREEN+"Ingrese la cantidad que va a vender (solo numeros):")
+                                print(colorLib.Cursor.POS(63,19)+colorLib.Fore.GREEN+'-> \0337')
+                                count = int(input('\0338'))  
+                                while(count > products[pSelected-1]['cantidad']):            
+                                    print(colorLib.Cursor.POS(63,20)+colorLib.Fore.RED+"No contamos con la cantidad suficiente:")
+                                    print(colorLib.Cursor.POS(63,21)+colorLib.Fore.GREEN+"Ingrese la cantidad nuevamente:")
+                                    print(colorLib.Cursor.POS(63,22)+colorLib.Fore.GREEN+'-> \0337')
+                                    count = int(input('\0338'))            
+                            
+                            ticket(colorLib, system, stores[sSelected-1], emps[eSelected-1], products[pSelected-1], count)
+                        elif(opc == 27):
+                            menu()
+                elif(opc == 27):
+                    menu()    
+        elif(opc == 27):
+            menu()    
+
 def menu():
     import colorama
     import os, sys, subprocess
@@ -784,32 +922,7 @@ def menu():
         if((opc == 13) & (step == 3)) | (opc == 51):
             os.system('cls')
             printSalesMenu(colorLib,system)
-            
-            print(colorLib.Cursor.POS(7,6)+colorLib.Fore.GREEN+"Seleccione un vendedor para ejecutar la venta")
-
-            employeeSelection(colorLib, system)
-            empCount = len(getEmployees())
-            
-            step = 1
-            while(True):
-                opc = ord(inp())
-                if(opc == 80):
-                    if(step == empCount):
-                        step = 1
-                    else:
-                        step += 1
-                    employeeSelection(colorLib, system, step)
-                elif(opc == 72):
-                    if(step == 1):
-                        step = empCount    
-                    else:
-                        step -= 1
-                    employeeSelection(colorLib, system, step)
-                elif(opc == 13):
-                    pass
-                    #
-                elif(opc == 27):
-                    menu()
+            saleProcess(colorLib, system, inp)
 
         #SALIR
         if((opc == 13) & (step == 4)) | (opc == 52):

@@ -1,3 +1,6 @@
-{'id': 'e2', 'nombre': 'roberto', 'salario': 222222}
-{'id': 'p1', 'nombre': 'gomina', 'precio': 400000, 'cantidad': 10}
-{'id': 't1', 'nombre': 'a', 'telefono': 2, 'correo': '@.com'}
+{'id': 't1', 'nombre': 'paiton fruteria', 'telefono': 3310894555, 'correo': 'paiton@fruteria.com'}
+{'id': 'e1', 'nombre': 'juan', 'salario': 2333}
+{'id': 'p1', 'nombre': 'manzana', 'precio': 3, 'cantidad': 14}
+{'id': 'p2', 'nombre': 'pera', 'precio': 3, 'cantidad': 33}
+{'id': 'p3', 'nombre': 'uvas', 'precio': 44, 'cantidad': 7}
+{'id': 'p4', 'nombre': 'naranja', 'precio': 5, 'cantidad': 33}
